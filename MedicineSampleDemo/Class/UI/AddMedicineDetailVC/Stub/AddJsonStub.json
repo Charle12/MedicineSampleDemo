@@ -1,0 +1,31 @@
+[
+    {
+        "txt1": "",
+        "lblTitle": "Medicine Name",
+        "placeHolder": "Enter Medicine Name",
+        "tag": 0,
+        "showError": true,
+        "errorMsg": "Required field.",
+    },{
+        "txt1": "",
+        "lblTitle": "Price",
+        "placeHolder": "Enter Price",
+        "tag": 1,
+        "showError": true,
+        "errorMsg": "Required field.",
+    },{
+        "txt1": "",
+        "lblTitle": "Quantity",
+        "placeHolder": "Enter Quantity",
+        "tag": 2,
+        "showError": true,
+        "errorMsg": "Required field.",
+    },{
+        "txt1": "",
+        "lblTitle": "Medicine Description",
+        "placeHolder": "Enter Medicine Description",
+        "errorMsg": "Required field.",
+        "tag": 3,
+        "showError": true,
+    }
+]

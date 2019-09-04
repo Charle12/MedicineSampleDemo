@@ -24,16 +24,16 @@ class AddMedicineDetailVC: UIViewController {
         self.namemakeAddressArray()
         if listModel != nil {
             if let name = listModel?.name {
-                self.updateValueInArray(index: 0, val1: name)
+                self.updateValueInArray(index: constants.TextFieldPosition.medicineName.rawValue, val1: name)
             }
             if let price = listModel?.price {
-                self.updateValueInArray(index: 1, val1: String(format: "%.2f", price))
+                self.updateValueInArray(index: constants.TextFieldPosition.medicinePrice.rawValue, val1: String(format: "%.2f", price))
             }
             if let quantity = listModel?.quantity {
-                self.updateValueInArray(index: 2, val1: String(format: "%ld", quantity))
+                self.updateValueInArray(index: constants.TextFieldPosition.medicineQuantity.rawValue, val1: String(format: "%ld", quantity))
             }
             if let des = listModel?.des {
-                self.updateValueInArray(index: 3, val1: des)
+                self.updateValueInArray(index: constants.TextFieldPosition.medicineDescription.rawValue, val1: des)
             }
         }
     }
@@ -94,7 +94,7 @@ class AddMedicineDetailVC: UIViewController {
     
     fileprivate func saveData() {
         weak var weakSelf = self
-        CoreDataManager.sharedManager.saveMedicineInformationInEntity(medicineName: self.returnTxtValue(index: 0), medicineDescription: self.returnTxtValue(index: 3), price: self.returnTxtValue(index: 1), quantity: self.returnTxtValue(index: 2)) { (flag, error, listModel) in
+        CoreDataManager.sharedManager.saveMedicineInformationInEntity(medicineName: self.returnTxtValue(index: constants.TextFieldPosition.medicineName.rawValue), medicineDescription: self.returnTxtValue(index: constants.TextFieldPosition.medicineDescription.rawValue), price: self.returnTxtValue(index: constants.TextFieldPosition.medicinePrice.rawValue), quantity: self.returnTxtValue(index: constants.TextFieldPosition.medicineQuantity.rawValue)) { (flag, error, listModel) in
             if flag {
                 if let objectModel = listModel.first {
                     weakSelf?.delegate?.updateInfoModel(model: objectModel, isUpdate: true, index: -1)
@@ -107,7 +107,7 @@ class AddMedicineDetailVC: UIViewController {
 
     fileprivate func updateData() {
         weak var weakSelf = self
-        CoreDataManager.sharedManager.updateMedicineInformationInEntity(medicineName: listModel?.name ?? constants.EMPTY_STRING, updatedMedicineName: self.returnTxtValue(index: 0), updatedMedicineDescription: self.returnTxtValue(index: 3), updatedPrice: self.returnTxtValue(index: 1), updatedQuantity: self.returnTxtValue(index: 2)) { (flag, error, listModel) in
+        CoreDataManager.sharedManager.updateMedicineInformationInEntity(medicineName: listModel?.name ?? constants.EMPTY_STRING, updatedMedicineName: self.returnTxtValue(index: constants.TextFieldPosition.medicineName.rawValue), updatedMedicineDescription: self.returnTxtValue(index: constants.TextFieldPosition.medicineDescription.rawValue), updatedPrice: self.returnTxtValue(index: constants.TextFieldPosition.medicinePrice.rawValue), updatedQuantity: self.returnTxtValue(index: constants.TextFieldPosition.medicineQuantity.rawValue)) { (flag, error, listModel) in
             if flag {
                 if let objectModel = listModel.first {
                     weakSelf?.delegate?.updateInfoModel(model: objectModel, isUpdate: true, index: weakSelf?.index ?? -1)

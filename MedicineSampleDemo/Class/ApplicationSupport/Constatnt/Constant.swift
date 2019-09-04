@@ -43,4 +43,12 @@ struct constants {
         static let ALL    = "Records has been retrieve successfully."
         static let NO_RECORDS    = "Looks like there are no Records available in your section."
     }
+    
+    enum TextFieldPosition: Int {
+        case medicineName              = 0
+        case medicinePrice             = 1
+        case medicineQuantity          = 2
+        case medicineDescription       = 3
+        
+    }
 }
